@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: raw_news
+    description: Raw news articles loaded by the Python ingestion pipeline.
+
+    database: AI_NEWS_MONITOR
+    schema: RAW
+
+    tables:
+      - name: news_articles_raw
+        identifier: NEWS_ARTICLES_RAW
+        description: Raw articles collected from NewsAPI and NewsData.
+
+        columns:
+          - name: ARTICLE_KEY
+            description: Deterministic unique key generated from the article URL or article metadata.
+            tests:
+              - not_null
+              - unique
+
+          - name: PROVIDER
+            description: API provider that supplied the article.
+            tests:
+              - not_null
+
+          - name: TITLE
+            description: Original article headline.
+            tests:
+              - not_null
+
+          - name: PUBLISHED_AT
+            description: Original article publication timestamp.
+
+          - name: INGESTED_AT
+            description: Timestamp when the ingestion pipeline loaded the article.
+            tests:
+              - not_null
+
+      - name: article_enrichment
+        identifier: ARTICLE_ENRICHMENT
+        description: Groq-generated semantic enrichment for each article.
+
+        columns:
+          - name: ARTICLE_KEY
+            data_tests:
+              - not_null
+              - unique
+
+          - name: IS_RELEVANT
+            data_tests:
+              - not_null
+
+          - name: RELEVANCE_SCORE
+            data_tests:
+              - not_null

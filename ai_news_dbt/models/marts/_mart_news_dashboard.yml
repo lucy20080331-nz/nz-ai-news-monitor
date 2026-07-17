@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: mart_news_dashboard
+    description: Final enriched news dataset prepared for the Power BI dashboard.
+
+    columns:
+      - name: article_key
+        description: Unique identifier for the article.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: title
+        description: Article headline displayed in Power BI.
+        data_tests:
+          - not_null
+
+      - name: article_url
+        description: Active hyperlink to the original article.
+        data_tests:
+          - not_null
+
+      - name: image_url
+        description: Image URL used in the latest-news section.
+
+      - name: published_date
+        description: Date the article was published.
+
+      - name: news_age_days
+        description: Number of calendar days since publication.
+
+      - name: is_relevant
+        description: Groq relevance classification.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - true
+                  - false
+
+      - name: relevance_score
+        description: Relevance to the New Zealand AI industry, from 0 to 100.
+        data_tests:
+          - not_null
+
+      - name: ai_category
+        description: Main AI industry topic assigned by Groq.
+
+      - name: sentiment_label
+        description: Positive, Neutral or Negative sentiment.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - Positive
+                  - Neutral
+                  - Negative
+
+      - name: business_impact
+        description: Estimated business impact of the development.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - High
+                  - Medium
+                  - Low
+                  - None

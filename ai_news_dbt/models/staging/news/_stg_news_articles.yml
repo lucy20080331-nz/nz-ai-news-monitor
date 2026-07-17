@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_news_articles
+    description: Cleaned and standardized news articles prepared for downstream transformation and enrichment.
+
+    columns:
+      - name: article_key
+        description: Unique article identifier.
+        tests:
+          - not_null
+          - unique
+
+      - name: provider
+        description: Source API provider.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - newsapi
+                  - newsdata
+
+      - name: title
+        description: Clean article title.
+        tests:
+          - not_null
+
+      - name: published_date
+        description: Date on which the article was published.
+
+      - name: news_age_days
+        description: Number of calendar days since publication.
+
+      - name: news_age_bucket
+        description: Business-friendly article-age category.
+        tests:
+          - accepted_values:
+              values:
+                - "Today"
+                - "1 day old"
+                - "2-7 days old"
+                - "8-14 days old"
+                - "15-30 days old"
+                - "More than 30 days old"
+                - "Unknown"

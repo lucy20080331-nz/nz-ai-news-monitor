@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: int_news_ready_for_llm
+    description: Clean article-level dataset prepared for Groq enrichment.
+
+    columns:
+      - name: article_key
+        description: Unique article identifier.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: title
+        description: Article headline.
+        data_tests:
+          - not_null
+
+      - name: text_for_llm
+        description: Combined title and description supplied to Groq.
+        data_tests:
+          - not_null
+
+      - name: published_date
+        description: Article publication date.
+
+      - name: news_age_days
+        description: Number of calendar days since publication.
