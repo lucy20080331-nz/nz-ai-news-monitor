@@ -11,8 +11,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def get_env(name: str) -> str:
-    value = os.getenv(name)
+def get_env(name: str, default: str | None = None) -> str:
+    value = os.getenv(name, default)
 
     if not value:
         raise ValueError(f"Environment variable '{name}' is missing.")
@@ -26,7 +26,6 @@ def get_env(name: str) -> str:
 NEWSDATA_API_KEY = get_env("NEWSDATA_API_KEY")
 NEWSAPI_API_KEY = get_env("NEWSAPI_API_KEY")
 
-
 # ===========================
 # Snowflake
 # ===========================
@@ -36,7 +35,15 @@ SNOWFLAKE_USER = get_env("SNOWFLAKE_USER")
 SNOWFLAKE_PASSWORD = get_env("SNOWFLAKE_PASSWORD")
 SNOWFLAKE_WAREHOUSE = get_env("SNOWFLAKE_WAREHOUSE")
 SNOWFLAKE_DATABASE = get_env("SNOWFLAKE_DATABASE")
-SNOWFLAKE_SCHEMA = get_env("SNOWFLAKE_SCHEMA")
+SNOWFLAKE_RAW_SCHEMA = get_env(
+    "SNOWFLAKE_RAW_SCHEMA",
+    "RAW",
+)
+
+DBT_SCHEMA = get_env(
+    "DBT_SCHEMA",
+    "DBT_DEV",
+)
 
 # ===========================
 # Project Settings

@@ -18,7 +18,8 @@ from config import (
     SNOWFLAKE_PASSWORD,
     SNOWFLAKE_WAREHOUSE,
     SNOWFLAKE_DATABASE,
-    SNOWFLAKE_SCHEMA,
+    SNOWFLAKE_RAW_SCHEMA,
+    DBT_SCHEMA,
 )
 
 
@@ -40,7 +41,7 @@ class SnowflakeLoader:
             password=SNOWFLAKE_PASSWORD,
             warehouse=SNOWFLAKE_WAREHOUSE,
             database=SNOWFLAKE_DATABASE,
-            schema=SNOWFLAKE_SCHEMA,
+            schema=SNOWFLAKE_RAW_SCHEMA,
         )
 
         print("Connected to Snowflake.")
