@@ -17,6 +17,8 @@ Data Analyst | Analytics Engineer | BI Developer
 - GitHub: https://github.com/<your-github-username>
 ---
 
+![NZ AI News Monitor Power BI dashboard](docs/dashboard.png)
+
 ## 📖 Project Overview
 
 AI is evolving rapidly, making it difficult for businesses to keep up with the latest developments and understand their potential impact.
@@ -69,6 +71,7 @@ The project implements a complete cloud-based analytics pipeline that:
 - **Reusable** – Easily adapted to monitor any news topic.
 - **Cost-efficient** – Incremental loading and selective LLM enrichment reduce processing costs.
 
+![Two Coordinated Schedules Automated Refresh](docs/refresh.png)
 ---
 
 # 🚀 Key Features
@@ -97,6 +100,7 @@ The project implements a complete cloud-based analytics pipeline that:
 | Configuration | dotenv | Secure credential management |
 
 ---
+![NZ AI News Monitor architecture](docs/architecture.png)
 
 # ❄ Snowflake Data Warehouse
 
