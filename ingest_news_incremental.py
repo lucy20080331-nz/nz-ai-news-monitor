@@ -17,12 +17,9 @@ import subprocess
 from pathlib import Path
 import sys
 
-DBT_PROJECT_DIR = Path(
-    r"D:\00-Projects\05-News Analysis Project\ai_news_dbt"
-)
-ENRICHMENT_SCRIPT = Path(
-    r"D:\00-Projects\05-News Analysis Project\enrich_news_groq.py"
-)
+PROJECT_ROOT = Path(__file__).resolve().parent
+DBT_PROJECT_DIR = PROJECT_ROOT / "ai_news_dbt"
+ENRICHMENT_SCRIPT = PROJECT_ROOT / "enrich_news_groq.py"
 
 
 PIPELINE_NAME = "DAILY_INCREMENTAL"
