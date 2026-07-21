@@ -34,7 +34,7 @@ jobs:
       SNOWFLAKE_DATABASE: ${{ vars.SNOWFLAKE_DATABASE }}
       SNOWFLAKE_RAW_SCHEMA: ${{ vars.SNOWFLAKE_RAW_SCHEMA }}
       DBT_SCHEMA: ${{ vars.DBT_SCHEMA }}
-      GROQ_MODEL: ${{ vars.GROQ_MODEL }}
+      GROQ_MODEL: ${{ secrets.GROQ_MODEL }}
 
     steps:
       - name: Download repository
