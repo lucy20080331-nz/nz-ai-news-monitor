@@ -31,7 +31,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   ai_news_dbt:
-    # Config indicated by + and applies to all files under models/example/
     staging:
       +materialized: view
 
@@ -40,3 +39,4 @@ models:
 
     marts:
       +materialized: table
+      +schema: MART

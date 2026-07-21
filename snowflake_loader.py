@@ -59,12 +59,12 @@ class SnowflakeLoader:
             print("Snowflake connection closed.")
 
     # ---------------------------------------------------
-    # Upload DataFrame
+    # Upload DataFrame to Landing
     # ---------------------------------------------------
 
-    def upload_stage(self, df, table_name):
+    def upload_landing(self, df, table_name):
 
-        print(f"Uploading {len(df)} rows to STAGE...")
+        print(f"Uploading {len(df)} rows to LANDING...")
 
         success, nchunks, nrows, _ = write_pandas(
             conn=self.conn,
@@ -74,12 +74,11 @@ class SnowflakeLoader:
             overwrite=True,
             use_logical_type=True,
         )
-        
+
         if not success:
+            raise Exception("Landing upload failed.")
 
-            raise Exception("Stage upload failed.")
-
-        print(f"{nrows} rows uploaded.")
+        print(f"{nrows} rows uploaded to LANDING.")
 
         return nrows
 

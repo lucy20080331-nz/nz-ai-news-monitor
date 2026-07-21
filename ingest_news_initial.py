@@ -1,6 +1,5 @@
 """
 ingest_news_initial.py
-
 Initial load of AI news into Snowflake.
 """
 
@@ -10,6 +9,7 @@ from utils import (
     validate_required_columns,
     remove_dataframe_duplicates,
     normalize_value,
+    
     clean_text
 )
 import pandas as pd
@@ -62,7 +62,7 @@ def main():
 
         loader.connect()
 
-        print("\nStep 4 : Upload Stage")
+        print("\nStep 4: Upload Landing Batch")
         
         TEXT_COLUMNS = [
             "provider",
@@ -106,12 +106,12 @@ def main():
 
         print(df.columns.tolist())
 
-        rows_uploaded = loader.upload_stage(
+        rows_uploaded = loader.upload_landing(
             df,
-            table_name="NEWS_ARTICLES_STAGE"
+            table_name="NEWS_ARTICLES_LANDING"
         )
 
-        print("\nStep 5 : Merge Stage -> Raw")
+        print("\nStep 5 : Merge Landing -> Raw")
 
         loader.execute_sql_file(
             "sql/merge_news.sql"

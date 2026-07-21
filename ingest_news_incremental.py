@@ -225,17 +225,17 @@ def main():
         df = prepare_dataframe(df)
 
         print(
-            f"Valid rows ready for stage: {len(df)}"
+            f"Valid rows ready for landing: {len(df)}"
         )
 
-        print("\nStep 6: Upload stage")
+        print("\nStep 6: Upload landing batch")
 
-        rows_staged = loader.upload_stage(
+        rows_landed = loader.upload_landing(
             df,
-            table_name="NEWS_ARTICLES_STAGE",
+            table_name="NEWS_ARTICLES_LANDING",
         )
 
-        print("\nStep 7: Merge stage into RAW")
+        print("\nStep 7: Merge landing batch into RAW")
 
         raw_rows_before = loader.get_table_row_count(
             table_name="NEWS_ARTICLES_RAW",
@@ -297,11 +297,10 @@ def main():
         loader.complete_pipeline_run(
             run_id=run_id,
             rows_fetched=rows_fetched,
-            rows_staged=rows_staged,
+            rows_staged=rows_landed,
             rows_inserted=rows_inserted,
             comments=success_comment,
         )
-
         print(
             "\nIncremental ingestion completed successfully."
         )
