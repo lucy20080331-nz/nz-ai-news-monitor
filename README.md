@@ -100,6 +100,17 @@ The project implements a complete cloud-based analytics pipeline that:
 | Configuration | dotenv | Secure credential management |
 
 ---
+## ⚠️ Free-Tier Limitations
+
+| Service | Limitation |
+|---|---|
+| **NewsAPI** | 100 requests/day, 24-hour delay, and one-month history. |
+| **NewsData.io** | 200 credits/day, 12-hour delay, and no full article content. |
+| **Groq Free** | 30 requests/minute, 1,000 requests/day, and 100,000 tokens/day for Llama 3.3 70B. |
+| **Snowflake Trial** | 30 days or until trial credits are exhausted. |
+
+These limits affect data freshness, daily processing volume, and long-term availability.
+---
 ![NZ AI News Monitor architecture](docs/architecture.png)
 
 # ❄ Snowflake Data Warehouse
