@@ -78,12 +78,24 @@ def run_python_script(
         cwd=script_path.parent,
         check=False,
         text=True,
+        capture_output=True,
     )
 
+    if result.stdout:
+        print(result.stdout, end="")
+
+    if result.stderr:
+        print(result.stderr, end="", file=sys.stderr)
+
     if result.returncode != 0:
+        error_detail = (
+            result.stderr.strip()
+            or result.stdout.strip()
+            or "No error details were returned."
+        )
         raise RuntimeError(
             f"{description} failed with exit code "
-            f"{result.returncode}."
+            f"{result.returncode}:\n{error_detail}"
         )
 
 def prepare_dataframe(df: pd.DataFrame) -> pd.DataFrame:
