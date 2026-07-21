@@ -1,5 +1,15 @@
 # NZ AI News Monitor
 **A Data Engineering & Business Intelligence solution for monitoring AI news in New Zealand.**
+<p align="left">
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white"/>
+<img src="https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white"/>
+<img src="https://img.shields.io/badge/Groq-000000?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
+<img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white"/>
+
+</p>
 
 #### Min Long (Lucy)
 Data Analyst | Analytics Engineer | BI Developer
@@ -90,8 +100,6 @@ The project implements a complete cloud-based analytics pipeline that:
 
 # ❄ Snowflake Data Warehouse
 
-## ❄️ Snowflake Data Warehouse Architecture
-
 The project uses **Snowflake** as a cloud data warehouse with a layered ELT architecture. Data is ingested into the **RAW** layer, transformed using **dbt**, enriched with **Groq LLM**, and published to a business-ready **MART** for Power BI reporting.
 
 ```
@@ -129,18 +137,6 @@ MART.MART_NEWS_DASHBOARD
 | **MART** | Publishes the final business-ready table for Power BI dashboards. |
 
 This layered design separates ingestion, transformation, AI enrichment, and reporting, providing a scalable and maintainable analytics workflow following modern **Bronze → Silver → Gold** architecture principles.
-
-### Data Pipeline
-
-1. Fetch news articles from **NewsAPI** and **NewsData.io**.
-2. Load new records into `RAW.NEWS_ARTICLES_STAGE`.
-3. Merge new articles into `RAW.NEWS_ARTICLES_RAW`.
-4. Execute dbt staging and intermediate models.
-5. Identify articles requiring AI enrichment.
-6. Generate sentiment and business insights using **Groq LLM**.
-7. Store enrichment results in `RAW.ARTICLE_ENRICHMENT`.
-8. Build the reporting mart (`DBT_DEV.MART_NEWS_DASHBOARD`) with dbt.
-9. Refresh the Power BI dashboard using the mart table.
 
 ---
 
@@ -219,26 +215,6 @@ The dashboard provides interactive insights into AI adoption and trends in New Z
 - 😊 Sentiment Analysis
 
 The dashboard enables users to explore AI developments by vendor, tool, industry, business impact, and sentiment.
-
----
-
-# 📈 Data Flow
-
-```text
-News APIs
-    │
-    ▼
-Python Pipeline
-    │
-    ▼
-Snowflake (RAW → STG → INT → MART)
-    │
-    ▼
-Groq LLM
-    │
-    ▼
-Power BI
-```
 
 ---
 
