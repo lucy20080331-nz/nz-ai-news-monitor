@@ -4,3 +4,4 @@ python-dotenv
 tqdm
 dbt-snowflake==1.11.6
 snowflake-connector-python[pandas]
+groq==1.5.0
