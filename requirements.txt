@@ -1,9 +1,6 @@
 pandas
-
 requests
-
-snowflake-connector-python[pandas]
-
 python-dotenv
-
 tqdm
+dbt-snowflake==1.11.6
+snowflake-connector-python[pandas]
