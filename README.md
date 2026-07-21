@@ -109,7 +109,6 @@ The project implements a complete cloud-based analytics pipeline that:
 | **Groq Free** | 30 requests/minute, 1,000 requests/day, and 100,000 tokens/day for Llama 3.3 70B. |
 | **Snowflake Trial** | 30 days or until trial credits are exhausted. |
 
-These limits affect data freshness, daily processing volume, and long-term availability.
 ---
 ![NZ AI News Monitor architecture](docs/architecture.png)
 
