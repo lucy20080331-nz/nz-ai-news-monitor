@@ -62,6 +62,7 @@ The project implements a complete cloud-based analytics pipeline that:
 - Enriches articles with an LLM to generate business insights
 - Visualises business insights in an interactive Power BI dashboard
 
+![NZ AI News Monitor architecture](docs/architecture.png)
 ---
 
 ## ✨ Key Strengths
@@ -70,6 +71,8 @@ The project implements a complete cloud-based analytics pipeline that:
 - **Scalable** – Built on Snowflake to support cloud-scale data processing.
 - **Reusable** – Easily adapted to monitor any news topic.
 - **Cost-efficient** – Incremental loading and selective LLM enrichment reduce processing costs.
+
+Automated workflow: GitHub Actions schedules the end-to-end ingestion and transformation pipeline, keeping the news intelligence dashboard up to date with minimal manual intervention.
 
 ![Two Coordinated Schedules Automated Refresh](docs/refresh.png)
 ---
@@ -110,7 +113,6 @@ The project implements a complete cloud-based analytics pipeline that:
 | **Snowflake Trial** | 30 days or until trial credits are exhausted. |
 
 ---
-![NZ AI News Monitor architecture](docs/architecture.png)
 
 # ❄ Snowflake Data Warehouse
 
@@ -249,10 +251,10 @@ The dashboard enables users to explore AI developments by vendor, tool, industry
 
 # 🚀 Future Enhancements
 
-- GitHub Actions automation
-- Additional news sources
-- RAG & vector search
-- Advanced Power BI dashboards
+- Configurable monitoring: Adapt keywords, topics, competitors, industries, and countries for different intelligence needs.
+- Expanded data sources: Integrate more global news, regulatory, and industry-specific sources.
+- AI-powered search and alerts: Add RAG, semantic search, trend detection, and high-impact event notifications.
+- Advanced business intelligence: Enhance Power BI with competitive benchmarking, historical trends, and interactive analysis.
 
 ---
 
